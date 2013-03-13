@@ -1,0 +1,6 @@
+* Kris' ClojureScript Mode
+
+Heavily stolen from Luke Amdor's "official" ClojureScript mode plugin,
+this is set up for my personal preferences. It will probably bork on
+your machine, unless you're one of the few weirdos like me who runs
+Emacs like it's Vim.
