@@ -3,7 +3,7 @@
 ;; Copyright 2013 Kris Jenkins
 ;; Author: Kris Jenkins
 ;; URL: https://github.com/krisajenkins/clojurescript-mode
-;; Package-Requires: ((clojure-mode "0") (evil-mode "0") (nrepl-eval-sexp-fu "0"))
+;; Package-Requires: ((clojure-mode "0") (evil-mode "0"))
 ;; Version: 0.1.0
 
 ;;; Commentary:
@@ -13,8 +13,6 @@
 ;; you.  Read for inspiration, but expect to have to customize...
 
 (require 'clojure-mode)
-(require 'nrepl-eval-sexp-fu)
-
 
 ;;;###autoload
 (define-derived-mode clojurescript-mode clojure-mode "ClojureScript"
@@ -36,15 +34,6 @@
 		(lisp-eval-region (point-min) (point-max))))))
 
 ;;;###autoload
-(defadvice lisp-eval-region (around lisp-eval-region-flash activate)
-  "Flash any calls to lisp-eval-region."
-  (let* ((start (ad-get-arg 0))
-		 (end (ad-get-arg 1))
-		 (flasher (nrepl-eval-sexp-fu-flash (cons start end)))
-		 (hi (cadr flasher))
-		 (unhi (caddr flasher)))
-	(nrepl-eval-sexp-fu-flash-doit-simple '(lambda () ad-do-it) hi unhi)))
-
 (add-to-list 'auto-mode-alist (cons "\\.cljs\\'" 'clojurescript-mode))
 
 (provide 'clojurescript-mode)
