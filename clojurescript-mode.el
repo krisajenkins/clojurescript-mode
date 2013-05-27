@@ -15,16 +15,6 @@
 (require 'clojure-mode)
 (require 'nrepl-eval-sexp-fu)
 
-;;; Code:
-(defgroup clojurescript nil
-  "A major mode for ClojureScript"
-  :group 'languages)
-
-;;;###autoload
-(defcustom clojurescript-mode/file-extension ".cljs"
-  "ClojureScript file extension."
-  :type 'string
-  :group 'clojurescript)
 
 ;;;###autoload
 (define-derived-mode clojurescript-mode clojure-mode "ClojureScript"
@@ -55,9 +45,7 @@
 		 (unhi (caddr flasher)))
 	(nrepl-eval-sexp-fu-flash-doit-simple '(lambda () ad-do-it) hi unhi)))
 
-;;;###autoload
-(when clojurescript-mode/file-extension
-	(add-to-list 'auto-mode-alist (cons (rx-to-string clojurescript-mode/file-extension) 'clojurescript-mode)))
+(add-to-list 'auto-mode-alist (cons "\\.cljs\\'" 'clojurescript-mode))
 
 (provide 'clojurescript-mode)
 ;;; clojurescript-mode.el ends here
