@@ -23,7 +23,8 @@
 
 ;;;###autoload
 (defun clojurescript-mode/eval-under-point ()
-  "Evaluates the form under the point. If there is a buffer named 'afterthought', it will execute its contents immediately afterwards."
+  "Evaluate the form under the point.
+If there is a buffer named 'afterthought', it will execute its contents immediately afterwards."
   (interactive)
   (lisp-eval-defun)
   (let ((afterthought (get-buffer "afterthought")))
