@@ -34,7 +34,7 @@
 		(lisp-eval-region (point-min) (point-max))))))
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist (cons "\\.cljs\\'" 'clojurescript-mode))
+(add-to-list 'auto-mode-alist (cons "\\.cljs$" 'clojurescript-mode))
 
 (provide 'clojurescript-mode)
 ;;; clojurescript-mode.el ends here
