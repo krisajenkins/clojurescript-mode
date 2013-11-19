@@ -12,7 +12,10 @@
 ;; these are my personal preferences and will probably not suit
 ;; you.  Read for inspiration, but expect to have to customize...
 
+;;; Code:
+
 (require 'clojure-mode)
+(require 'evil)
 
 ;;;###autoload
 (defun clojurescript-mode/eval-under-point ()
